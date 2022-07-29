@@ -18,7 +18,7 @@ export default function ProductDetails() {
     },[])
 
     let addToCart = () => {
-        navigate("/cart", {state: {id: productId, quantity: quantity}})
+        
     }
 
     return(

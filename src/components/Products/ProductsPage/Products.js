@@ -3,8 +3,7 @@ import ProductCard from "./ProductCard";
 import { getProducts } from "../ProductUtils";
 
 export default function Products() {
-    const [products, setProducts] = useState([]);
-    const [productId, setProductId] = useState(""); 
+    const [products, setProducts] = useState([]); 
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -25,7 +24,6 @@ export default function Products() {
                                 image={product.image}
                                 title={product.title} 
                                 price={product.price}
-                                setProductId={setProductId}
                             />
                         ))
                     ) : (

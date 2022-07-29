@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom"
-export default function ProductCard({id,image,title,price,setProductId}) {
+export default function ProductCard({id,image,title,price}) {
 
     const navigate = useNavigate();
     let openDetails = () => {
-        setProductId(id)
         navigate(`/products/${id}`, {state: id});
     }
 
