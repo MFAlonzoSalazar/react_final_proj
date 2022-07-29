@@ -8,6 +8,7 @@ import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import Login from './components/Login/Login';
 import NotFound from './components/Static/NotFound';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 
           <Route index element={<Home/>} />
           <Route path="/products" element={<Products/>} />
+          <Route path="/products/*" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />

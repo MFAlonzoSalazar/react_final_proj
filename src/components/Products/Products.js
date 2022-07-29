@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "../utils";
+import ProductDetails from "../ProductDetails/ProductDetails";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -13,16 +14,20 @@ export default function Products() {
     },[])
 
     return(
-        <div className="Home">
+        <div>
+            <h1> Products </h1>
+
             {!loading ? (
                 <div>
                     {products.length > 0 ? (
                         products.map((product, index) =>(
                             <ProductCard 
                                 key={index} 
+                                id={product.id}
                                 image={product.image}
                                 title={product.title} 
                                 price={product.price}
+                                setProductId={setProductId}
                             />
                         ))
                     ) : (
@@ -32,6 +37,11 @@ export default function Products() {
             ): (
                 <p>Loading ...</p>
             )}
+
+            <ProductDetails productId={productId} 
+                            productInfo={productInfo} 
+                            setProductInfo={setProductInfo} 
+            />
         </div>
     )
 }
