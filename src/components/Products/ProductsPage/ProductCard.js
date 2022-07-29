@@ -4,7 +4,7 @@ export default function ProductCard({id,image,title,price,setProductId}) {
     const navigate = useNavigate();
     let openDetails = () => {
         setProductId(id)
-        navigate(`/products/${id}`);
+        navigate(`/products/${id}`, {state: id});
     }
 
     return(
