@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HeaderFooter from './components/Static/HeaderFooter';
@@ -9,28 +8,32 @@ import Checkout from './components/Checkout/Checkout';
 import Login from './components/Login/Login';
 import NotFound from './components/Static/NotFound';
 import ProductDetails from './components/Products/ProductDetails/ProductDetails';
+import { CartProvider } from './components/Contexts/CartContext';
 
 function App() {
   return (
 
-    <BrowserRouter>
-      <Routes>
+    <CartProvider>
 
-        <Route path="/" element={<HeaderFooter />}>
+      <BrowserRouter>
+        <Routes>
 
-          <Route index element={<Home/>} />
-          <Route path="/products" element={<Products/>} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart/>} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<HeaderFooter />}>
 
+            <Route index element={<Home/>} />
+            <Route path="/products" element={<Products/>} />
+            <Route path="/products/:productId" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart/>} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+            
+          </Route>
 
-        </Route>
-
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
+    
 
   );
 }

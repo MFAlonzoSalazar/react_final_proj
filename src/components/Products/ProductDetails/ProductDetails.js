@@ -1,25 +1,19 @@
-import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getProductsById } from "../ProductUtils";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { getProductsById } from "../productUtils";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../../Contexts/CartContext";
 
 export default function ProductDetails() {
     const [productInfo, setProductInfo] = useState([]);
     const [loading, setLoading] = useState(false)
     const [quantity, setQuantity] = useState(1);
 
-    const { state } = useLocation();
-    const productId = state;
-
-    const navigate = useNavigate();
-
+    const { productId } = useParams();
+    const { addToCart } = useContext(CartContext);
+    
     useEffect(() => {
         getProductsById(productId, setProductInfo,setLoading);        
     },[])
-
-    let addToCart = () => {
-        
-    }
 
     return(
         <div style={{display:"flex", justifyContent:"space-between", }}>
@@ -39,7 +33,7 @@ export default function ProductDetails() {
                         autoComplete="off"
                         onChange={(event => setQuantity(event.target.value))}
                     />
-                    <input type="button" value="Add To Cart" onClick={addToCart}/>
+                    <input type="button" value="Add To Cart" onClick={() => addToCart(productId, quantity)} />
 
                 </form>
            </div>
