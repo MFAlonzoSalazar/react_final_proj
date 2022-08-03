@@ -9,31 +9,36 @@ import Login from './components/Login/Login';
 import NotFound from './components/Static/NotFound';
 import ProductDetails from './components/Products/ProductDetails/ProductDetails';
 import { CartProvider } from './components/Contexts/CartContext';
+import { ThemeProvider } from './components/Contexts/ThemeContext';
+import { GlobalStyles } from './components/StyledComponents';
 
 function App() {
   return (
 
-    <CartProvider>
+    <ThemeProvider>
+      <GlobalStyles />
+      <CartProvider>
 
-      <BrowserRouter>
-        <Routes>
+        <BrowserRouter>
+          <Routes>
 
-          <Route path="/" element={<HeaderFooter />}>
+            <Route path="/" element={<HeaderFooter />}>
 
-            <Route index element={<Home/>} />
-            <Route path="/products" element={<Products/>} />
-            <Route path="/products/:productId" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart/>} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
-            
-          </Route>
+              <Route index element={<Home/>} />
+              <Route path="/products" element={<Products/>} />
+              <Route path="/products/:productId" element={<ProductDetails />} />
+              <Route path="/cart" element={<Cart/>} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<NotFound />} />
+              
+            </Route>
 
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
-    
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+
+    </ThemeProvider>
 
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "../productUtils";
+import { ProductsHeader } from "../../StyledComponents";
 
 export default function Products() {
     const [products, setProducts] = useState([]); 
@@ -12,26 +13,28 @@ export default function Products() {
 
     return(
         <div>
-            <h1> Products </h1>
+            <ProductsHeader> Products </ProductsHeader>
 
             {!loading ? (
-                <div>
+                <div className="ProductDisplay">
                     {products.length > 0 ? (
                         products.map((product, index) =>(
-                            <ProductCard 
-                                key={index} 
-                                id={product.id}
-                                image={product.image}
-                                title={product.title} 
-                                price={product.price}
-                            />
+                            <div className="Product"> 
+                                <ProductCard 
+                                    key={index} 
+                                    id={product.id}
+                                    image={product.image}
+                                    title={product.title} 
+                                    price={product.price}
+                                />
+                            </div>
                         ))
                     ) : (
                         <h3> No Products Found </h3>
                     )}
                 </div>
             ): (
-                <p>Loading ...</p>
+                <h1>Loading ...</h1>
             )}
         
         </div>

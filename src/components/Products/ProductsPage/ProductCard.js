@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { ProductCardButton } from "../../StyledComponents";
 export default function ProductCard({id,image,title,price}) {
 
     const navigate = useNavigate();
@@ -7,10 +8,14 @@ export default function ProductCard({id,image,title,price}) {
     }
 
     return(
-        <button onClick={openDetails}>
-            <img className="Product-Image" src={image} width="10%" height="20%"/>
-            <div className="Product-Title"> <b>{title}</b> </div>
-            <div className="Product-Price"> ${price} </div>
-        </button>
+        <ProductCardButton onClick={openDetails}>
+            <div>
+                <img className="Product-Image" src={image} width="30%" />
+            </div>
+            <div>
+                <div className="Product-Title"> <b>{title}</b> </div>
+                <div className="Product-Price"> ${price} </div>
+            </div>
+        </ProductCardButton>
     )
 }
