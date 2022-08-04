@@ -9,7 +9,7 @@ export default function Home() {
     };
     return(
         <div className="Home" >
-            <h1>Welcome to FakeStore</h1>
+            <h1 className="CenteredHeader">Welcome to FakeStore</h1>
             <p> We have a wide range of products we think you will love !</p>  
             <StyledButton onClick={goToProducts}> Take A Look </StyledButton>
         </div>

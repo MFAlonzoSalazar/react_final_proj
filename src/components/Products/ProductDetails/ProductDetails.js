@@ -7,12 +7,15 @@ import { ButtonPrimary, StyledButton } from "../../StyledComponents";
 export default function ProductDetails() {
     const [productInfo, setProductInfo] = useState([]);
     const [loading, setLoading] = useState(false)
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(Number(1));
 
     const { productId } = useParams();
     const { addToCart, calculateTotal } = useContext(CartContext);
 
     let addToBag = (productId, title , image, price, quantity) => {
+        if(quantity <= Number(0)) {
+            return;
+        }
         calculateTotal(price, quantity);
         addToCart(productId, title , image, price, quantity);
     }
@@ -40,10 +43,11 @@ export default function ProductDetails() {
                     <input className="CartInput"
                         name="quantity" 
                         type="number" 
+                        required
                         value={quantity} 
                         autoComplete="off"
-                        min="0"
-                        onChange={(event => setQuantity(event.target.value))}
+                        min="1"
+                        onChange={(event => setQuantity(Number(event.target.value)))}
                     />
                     <StyledButton type="button" onClick={() =>
                         addToBag(productId, productInfo.title, productInfo.image, productInfo.price, quantity)}>

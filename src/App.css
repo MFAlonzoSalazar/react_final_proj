@@ -18,6 +18,12 @@
     font-size: 14px;
 }
 
+.CartModifier {
+  height: 14px;
+  width: 50px;
+  margin: 8px;
+}
+
 h1{
   text-align: left;
 }
@@ -65,6 +71,33 @@ h1{
   max-width: 70%; 
   max-height: 70%;
   padding-top: 10px;
+}
+
+.CenteredHeader{
+  text-align: center;
+}
+.CartFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content:center ;
+  align-items: center;
+}
+
+.CartDisplayFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: stretch;
+
+}
+
+.Remove:hover{
+  opacity: 0.9;
+}
+.Remove:active{
+  opacity: 0.5;
 }
 
 

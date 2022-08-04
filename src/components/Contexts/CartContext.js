@@ -8,8 +8,13 @@ const CartProvider = (props) => {
     const [total, setTotal] = useState(0);
 
     let calculateTotal = (quantity, price) => {
-        const tempTotal = Number(total) + Number(Number(price)*Number(quantity));
-        setTotal(tempTotal);
+        if(total === 0) {
+            setTotal(Number(price)*Number(quantity));
+        } else {
+            const tempTotal = Number(total) + Number(Number(price)*Number(quantity));
+            setTotal(tempTotal);
+        }
+        
     }
 
     const addToCart = (productId, title, image, price, quantity) => {
@@ -30,13 +35,10 @@ const CartProvider = (props) => {
     };
     
     const removeFromCart = (productId, quantity) => {
-        if (Number(quantity) === 0) {
+        if (quantity === Number(0)) {
             const index = cart.indexOf(cart.find(x => x.id === productId));
             cart.splice(index, 1);
-        } else {
-            const product = cart.find(x => x.id === productId)
-            product.quantity = quantity;
-        }
+        } 
     }
 
     return(

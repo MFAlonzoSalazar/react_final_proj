@@ -113,9 +113,31 @@ export const GlobalStyles = createGlobalStyle`
 export const CartDisplayDiv = styled.div`
     display: flex;
     padding: 40px;
+    width: 50%;
     ${({theme: {theme}})=> `
-        border: 2px solid ${themes[theme].highlight};
-        border-style: solid none;
+        border-bottom: 1px solid ${themes[theme].shadow};
     `}
 
+`
+export const StyledContainer = styled.div`
+    ${({theme: {theme}})=> `
+        border-top: 1px solid ${themes[theme].shadow};
+    `}
+`
+export const CartItems = styled.div`
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px; 
+    align-content:center;
+    align-items:center;
+    width: 50%;
+`
+export const CartProductInfo = styled.p`
+    font-weight: bold;
+`
+export const CartProductImg = styled.img`
+    max-width: 80px;
+    max-height: 130px;
+    width: auto;
+    height: auto;
 `

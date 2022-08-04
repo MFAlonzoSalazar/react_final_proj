@@ -1,12 +1,17 @@
-import { toBeInTheDOM } from "@testing-library/jest-dom/dist/matchers";
 import { CartDisplayDiv } from "../StyledComponents";
 import CartProductDisplay from "./CartProductDisplay";
+import SubtotalDisplay from "./SubtotalDisplay";
 
-export default function CartDisplay({image,price,quantity,title}) {
+export default function CartDisplay({id}) {
     return(
-        <CartDisplayDiv>
-            <CartProductDisplay />
+        <div className="CartDisplayFlex">
+            <CartDisplayDiv>
+                <CartProductDisplay id={id} />
+            </CartDisplayDiv>
             
-        </CartDisplayDiv>
+            <SubtotalDisplay/>
+            
+        </div>
+        
     );
 }
