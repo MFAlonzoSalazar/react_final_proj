@@ -17,18 +17,20 @@ const CartProvider = (props) => {
         
     }
 
-    const addToCart = (productId, title, image, price, quantity) => {
+    const addToCart = (productId, title, image, price, quantity, itemTotal) => {
         const product = cart.find(x => x.id === productId)
         if(product) {
-                product.quantity = Number(product.quantity) + Number(quantity)
+                product.quantity = Number(product.quantity) + Number(quantity);
+                product.itemTotal = (Number(product.price)*Number(product.quantity));
           
         } else {
             cart.push({
                 id: productId,
                 title: title,
                 image: image,
-                price:price,
-                quantity: quantity
+                price: price,
+                quantity: quantity,
+                itemTotal: price,
             });
         }
         console.log(cart);

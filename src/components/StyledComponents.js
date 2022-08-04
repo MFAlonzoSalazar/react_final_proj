@@ -115,25 +115,30 @@ export const CartDisplayDiv = styled.div`
     padding: 40px;
     width: 50%;
     ${({theme: {theme}})=> `
-        border-bottom: 1px solid ${themes[theme].shadow};
+        border-bottom: 2px solid ${themes[theme].contrast};
     `}
 
 `
 export const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    padding-bottom: 60px;
     ${({theme: {theme}})=> `
-        border-top: 1px solid ${themes[theme].shadow};
+        border-top: 2px solid ${themes[theme].contrast};
     `}
 `
 export const CartItems = styled.div`
     display: flex;
     flex-direction: row;
     column-gap: 30px; 
-    align-content:center;
-    align-items:center;
-    width: 50%;
+    align-content: center;
+    align-items: stretch;
 `
 export const CartProductInfo = styled.p`
-    font-weight: bold;
+    text-align: left;
 `
 export const CartProductImg = styled.img`
     max-width: 80px;

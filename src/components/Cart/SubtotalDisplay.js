@@ -6,8 +6,8 @@ export default function SubtotalDisplay() {
     const { total } = useContext(CartContext);
 
     return(
-        <div>
-            <CartProductInfo> Subtotal : {total.toFixed(2)} </CartProductInfo>
+        <div className="CartSubtotal">
+            <p> Subtotal : {total.toFixed(2)} </p>
 
         </div>
     )

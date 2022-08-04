@@ -78,21 +78,13 @@ h1{
 }
 .CartFlex {
   display: flex;
+  text-align: left;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-content:center ;
+  column-gap: 100px;
+  justify-content: left;
+  align-content: center;
   align-items: center;
 }
-
-.CartDisplayFlex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: stretch;
-
-}
-
 .Remove:hover{
   opacity: 0.9;
 }

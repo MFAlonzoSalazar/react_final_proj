@@ -12,12 +12,15 @@ export default function CartProductDisplay({id}) {
     let modifyCart = (newQuantity) => {
         if (newQuantity === 0) { 
             const difference = Number(0) - Number(product.quantity);
+            product.itemTotal = 0;
             calculateTotal(difference, product.price);
             removeFromCart(product.id, Number(0));
         }   else {
             const difference = Number(newQuantity) - Number(product.quantity);
             calculateTotal(difference, product.price);
+            product.itemTotal = Number(product.price) * Number(newQuantity);
             product.quantity = newQuantity;
+            
         }
         
     }
@@ -26,11 +29,9 @@ export default function CartProductDisplay({id}) {
             <CartItems>
                     <CartProductImg src={product.image} />
 
-                    <div style={{display: "flex", flexDirection:"column"}}>
-                        <CartProductInfo> {product.title} </CartProductInfo>
+                    <div style={{display: "flex", flexDirection:"column", textAlign:"left"}}>
+                        <p> {product.title} </p>
                         <div className="CartFlex">
-                            
-                            <CartProductInfo> Price : ${product.price.toFixed(2)} </CartProductInfo>
                             <div>
                                 <input className="CartModifier"
                                         name="quantity" 
@@ -41,7 +42,9 @@ export default function CartProductDisplay({id}) {
                                         onChange={(event => modifyCart((event.target.value)))}      
                                 />
                                 <FontAwesomeIcon className="Remove" icon={faTrashCan} onClick={()=> modifyCart(0)} /> 
-                            </div>  
+                            </div> 
+                            <p> Price : ${product.price.toFixed(2)} </p> 
+                            <b> Total : ${Number(product.itemTotal).toFixed(2)} </b>
                         </div>
                     </div>
             </CartItems>
