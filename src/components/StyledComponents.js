@@ -8,9 +8,8 @@ const themes={
         contrast: "#CED8E4" ,
         border: "#BCCCDC",
         highlight: "#3E5A75",
-        primary:"#6990E7",
-        secondary:"#848A94"
-
+        shadow: "#19429A",
+        shadowContrast: "#DEE5ED"
     },
     dark:{
         bg:"#191A1C",
@@ -18,8 +17,8 @@ const themes={
         contrast:"#27292D",
         border: "#18191B" ,
         highlight: "#777D88",
-        primary:"#6990E7",
-        secondary:"#848A94"
+        shadow: "black",
+        shadowContrast: "#2f3237"
     },
    
 }
@@ -66,13 +65,22 @@ export const StyledLink = styled.p`
     `}
 `
 
-export const ButtonPrimary = styled.button`
+export const StyledButton = styled.button`
     border-radius: 6px;
     padding: 8px;
     font-size: 14px;
+    cursor: pointer;
     ${({theme: {theme}})=> `
-        border: 1px solid ${themes[theme].primary};
-        background: ${themes[theme].primary} 
+        color: ${themes[theme].text};
+        border: 1px solid ${themes[theme].border};
+        background: ${themes[theme].contrast}; 
+        &:hover{
+            box-shadow: inset 0 0 5px ${themes[theme].shadow} ;
+        }
+        &:active {
+            background: ${themes[theme].shadowContrast};
+            box-shadow: inset 0 0 5px ${themes[theme].shadow} ;
+        }
     `}
 `
 export const ProductCardButton = styled.button`
@@ -96,9 +104,18 @@ export const ProductsHeader = styled.h1`
     padding-left: 80px;
 `
 export const GlobalStyles = createGlobalStyle`
-  body {
+    body {
+        ${({theme: {theme}})=> `
+            background: ${themes[theme].bg}
+        `}
+    }
+`
+export const CartDisplayDiv = styled.div`
+    display: flex;
+    padding: 40px;
     ${({theme: {theme}})=> `
-        background: ${themes[theme].bg}
+        border: 2px solid ${themes[theme].highlight};
+        border-style: solid none;
     `}
-  }
+
 `

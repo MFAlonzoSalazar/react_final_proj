@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ButtonPrimary } from "../StyledComponents";
+import { ButtonPrimary, StyledButton } from "../StyledComponents";
 // got slideshow code from https://www.w3schools.com/howto/howto_js_slideshow.asp
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
         <div className="Home" >
             <h1>Welcome to FakeStore</h1>
             <p> We have a wide range of products we think you will love !</p>  
-            <ButtonPrimary onClick={goToProducts}> Take A Look </ButtonPrimary>
+            <StyledButton onClick={goToProducts}> Take A Look </StyledButton>
         </div>
     )
 }

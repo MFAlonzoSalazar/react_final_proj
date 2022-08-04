@@ -25,7 +25,7 @@ export default function Products() {
                                     id={product.id}
                                     image={product.image}
                                     title={product.title} 
-                                    price={product.price}
+                                    price={product.price.toFixed(2)}
                                 />
                             </div>
                         ))

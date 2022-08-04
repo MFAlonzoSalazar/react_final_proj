@@ -14,7 +14,7 @@ export default function ProductCard({id,image,title,price}) {
             </div>
             <div>
                 <div className="Product-Title"> <b>{title}</b> </div>
-                <div className="Product-Price"> ${price} </div>
+                <div className="Product-Price"> <b>Price: </b>${price} </div>
             </div>
         </ProductCardButton>
     )

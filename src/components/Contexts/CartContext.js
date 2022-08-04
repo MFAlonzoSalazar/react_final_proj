@@ -1,30 +1,46 @@
 import { createContext, useState } from "react";
 
-const CartContext = createContext(new Map());
+const CartContext = createContext([]);
 
 
 const CartProvider = (props) => {
-    const [cart, setCart] = useState(new Map());
+    const [cart, setCart] = useState([]);
+    const [total, setTotal] = useState(0);
 
-    const addToCart = (productId, quantity) => {
-        if(cart.has(productId)) {
-            cart.set(productId, Number(cart.get(productId)) + Number(quantity));
+    let calculateTotal = (quantity, price) => {
+        const tempTotal = Number(total) + Number(Number(price)*Number(quantity));
+        setTotal(tempTotal);
+    }
+
+    const addToCart = (productId, title, image, price, quantity) => {
+        const product = cart.find(x => x.id === productId)
+        if(product) {
+                product.quantity = Number(product.quantity) + Number(quantity)
+          
         } else {
-            cart.set(productId, quantity);
+            cart.push({
+                id: productId,
+                title: title,
+                image: image,
+                price:price,
+                quantity: quantity
+            });
         }
         console.log(cart);
     };
     
     const removeFromCart = (productId, quantity) => {
         if (Number(quantity) === 0) {
-            cart.delete(productId);
+            const index = cart.indexOf(cart.find(x => x.id === productId));
+            cart.splice(index, 1);
         } else {
-            cart.set(productId, quantity);
+            const product = cart.find(x => x.id === productId)
+            product.quantity = quantity;
         }
     }
 
     return(
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, total, calculateTotal }}>
             {props.children}
         </CartContext.Provider>
     )
