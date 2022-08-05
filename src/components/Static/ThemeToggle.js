@@ -7,8 +7,8 @@ export default function ThemeToggle() {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     return(
-        <div onClick={toggleTheme} style={{paddingTop: "15px"}}>
-            <FontAwesomeIcon className="Toggle" icon={theme === "light" ? faSun : faMoon} size="2x" style={{}}/>
+        <div onClick={toggleTheme}>
+            <FontAwesomeIcon className="Toggle" icon={theme === "light" ? faSun : faMoon} size="2x" />
         </div> 
     )
 }

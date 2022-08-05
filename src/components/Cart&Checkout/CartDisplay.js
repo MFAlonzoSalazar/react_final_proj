@@ -1,5 +1,5 @@
 import { CartDisplayDiv } from "../StyledComponents";
-import CartProductDisplay from "./CartProductDisplay";
+import CartProductDisplay from "../Cart/CartProductDisplay";
 import { CartContext } from "../Contexts/CartContext";
 import { useContext } from "react";
 

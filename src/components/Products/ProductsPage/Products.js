@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "../productUtils";
-import { ProductsHeader } from "../../StyledComponents";
+import { StyledHeader } from "../../StyledComponents";
 
 export default function Products() {
     const [products, setProducts] = useState([]); 
@@ -13,7 +13,7 @@ export default function Products() {
 
     return(
         <div>
-            <ProductsHeader> Products </ProductsHeader>
+            <StyledHeader> Products </StyledHeader>
 
             {!loading ? (
                 <div className="ProductDisplay">

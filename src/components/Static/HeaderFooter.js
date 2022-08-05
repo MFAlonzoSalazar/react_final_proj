@@ -11,7 +11,7 @@ export default function HeaderFooter(props) {
                 <Outlet />
             </div>
             <AppFooter > 
-                <p>&copy; Fernanda Blaise 2022</p>
+                <div style={{padding:"10px"}}>&copy; Fernanda Blaise 2022</div>
             </AppFooter>
         </AppBackground>
     );

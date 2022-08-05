@@ -96,9 +96,41 @@ h1{
   position: fixed;
   text-align: left;
   width: 45%;
-  top: 214px;
+  top: 175px;
   right:-8%;
 }
+
+
+.Slides {
+  margin: auto;
+  width: 20%;
+  height: 500px;
+  outline:"black";
+}
+
+.mb-3 {
+  text-align: left;
+  color: black;
+}
+.StoreName {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-left: 60px;
+}
+
+.Nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  width: 20%;
+}
+
+
+
 
 
 

@@ -9,7 +9,8 @@ const themes={
         border: "#BCCCDC",
         highlight: "#3E5A75",
         shadow: "#19429A",
-        shadowContrast: "#DEE5ED"
+        shadowContrast: "#DEE5ED",
+        badge: "white"
     },
     dark:{
         bg:"#191A1C",
@@ -18,7 +19,8 @@ const themes={
         border: "#18191B" ,
         highlight: "#777D88",
         shadow: "black",
-        shadowContrast: "#2f3237"
+        shadowContrast: "#2f3237",
+        badge:"#777D88"
     },
    
 }
@@ -31,10 +33,12 @@ export const AppBackground = styled.div`
     `}
 ` 
 
-export const AppHeader = styled.header`
-    padding-right: 20px;
-    padding-left: 50px;
+export const AppHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
     position:sticky;
+    z-index: 100;
     top: 0;
     ${({theme: {theme}})=> `
         background-color: ${themes[theme].contrast};
@@ -54,7 +58,7 @@ export const AppFooter = styled.footer`
     `}
 `;
 
-export const StyledLink = styled.p`
+export const StyledLink = styled.div`
     ${({theme: {theme}})=> `
         width: 100%;
         height: 100%;
@@ -119,9 +123,12 @@ export const ProductCardButton = styled.button`
         }
     `}
 `
-export const ProductsHeader = styled.h1`
+export const StyledHeader = styled.h1`
     text-align: left;
     padding-left: 80px;
+    ${({theme: {theme}})=> `
+        color: ${themes[theme].text}
+    `}
 `
 export const GlobalStyles = createGlobalStyle`
     body {
@@ -167,3 +174,28 @@ export const CartProductImg = styled.img`
     width: auto;
     height: auto;
 `
+
+export const StyledForm = styled.div`
+    ${({theme: {theme}})=> `
+        border-top: 2px solid ${themes[theme].contrast};
+    `}
+`
+export const StyledRow = styled.div`
+    padding-top:50px;
+    padding-bottom: 50px;
+    ${({theme: {theme}})=> `
+        border-bottom: 2px solid ${themes[theme].contrast};
+    `}
+`
+export const StyledSpan = styled.div`
+    font-size:10px;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-top: -2px;
+    margin-left: -10px; 
+    ${({theme: {theme}})=> `
+        background: ${themes[theme].badge};
+        color: ${themes[theme].text};
+    `}
+`
+

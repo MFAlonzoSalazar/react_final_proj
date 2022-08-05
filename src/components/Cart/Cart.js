@@ -1,8 +1,8 @@
 import { CartContext } from "../Contexts/CartContext";
 import { useContext } from "react";
-import CartDisplay from "./CartDisplay";
+import CartDisplay from "../Cart&Checkout/CartDisplay";
 import { StyledContainer } from "../StyledComponents";
-import SubtotalDisplay from "./SubtotalDisplay";
+import SubtotalDisplay from "../Cart&Checkout/SubtotalDisplay";
 export default function Cart() {
     
     const { cart } = useContext(CartContext);

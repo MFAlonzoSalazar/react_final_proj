@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom'
-import { StyledLink } from '../StyledComponents';
+import { StyledLink, StyledSpan } from '../StyledComponents';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { CartContext } from '../Contexts/CartContext';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
 export default function MyNavLink({route, label}) {
     const { cartCount } = useContext(CartContext);
@@ -17,15 +17,12 @@ export default function MyNavLink({route, label}) {
         <NavLink className="Links" to={route} style={({isActive})=>styleByActiveStatus(isActive)} >
             <StyledLink>
                 { label === "Cart" ? (
-                    <p>
-                        <FontAwesomeIcon className="Cart"icon={faCartShopping} size="1x"/>
-                        ({cartCount})
-                    </p>
+                    <>
+                        <FontAwesomeIcon className="Cart"icon={faCartShopping} width="20px" size="1x"/>
+                        <StyledSpan className="badge">{cartCount}</StyledSpan>
+                    </>
                     
-                ) : (
-                    label ==="Account" ? (<FontAwesomeIcon icon={faUser} size="1x"/>) : (label)   
-                )             
-                }
+                ) : ( label)}
             </StyledLink>
         </NavLink>
     )
