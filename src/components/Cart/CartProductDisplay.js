@@ -3,11 +3,13 @@ import { CartContext } from "../Contexts/CartContext"
 import { CartItems, CartProductImg, CartProductInfo } from "../StyledComponents";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { useLocation } from "react-router-dom";
 
 
 export default function CartProductDisplay({id}) {
     const { cart, cartCount, setCartCount, calculateTotal, removeFromCart } = useContext(CartContext);
     const product = cart.find(x => x.id === id);
+    const page = useLocation();
 
 
     let modifyCart = (newQuantity) => {
@@ -31,6 +33,29 @@ export default function CartProductDisplay({id}) {
         removeFromCart(product.id, Number(0));
     }
 
+    let showCartModifier = () => {
+        if (page.pathname === "/cart") {
+            return(
+                <div>
+                    <input className="CartModifier"
+                        name="quantity" 
+                        type="number" 
+                        value={product.quantity} 
+                        min="1"
+                        max="100"
+                        onChange={(event => modifyCart(Number(event.target.value)))}
+                    />
+                    <FontAwesomeIcon className="Remove" icon={faTrashCan} onClick={deleteFromCart} /> 
+                </div> 
+            );
+        } 
+        return(
+            <div>
+                <p>Qty: {product.quantity}</p>
+            </div>
+        )
+    }
+
     if(cart.length > 0) {
         return(
             <CartItems>
@@ -40,17 +65,7 @@ export default function CartProductDisplay({id}) {
                     <div style={{display: "flex", flexDirection:"column", textAlign:"left"}}>
                         <p> {product.title} </p>
                         <div className="CartFlex">
-                            <div>
-                            <input className="CartModifier"
-                                name="quantity" 
-                                type="number" 
-                                value={product.quantity} 
-                                min="1"
-                                max="100"
-                                onChange={(event => modifyCart(Number(event.target.value)))}
-                            />
-                                <FontAwesomeIcon className="Remove" icon={faTrashCan} onClick={deleteFromCart} /> 
-                            </div> 
+                            {showCartModifier()}
                             <p> Price : ${product.price.toFixed(2)} </p> 
                             <b> Total : ${Number(product.itemTotal).toFixed(2)} </b>
                         </div>

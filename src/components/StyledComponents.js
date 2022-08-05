@@ -83,6 +83,26 @@ export const StyledButton = styled.button`
         }
     `}
 `
+export const StyledCheckoutButton = styled.button`
+    width: 50%;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    ${({theme: {theme}})=> `
+        color: ${themes[theme].text};
+        border: 1px solid ${themes[theme].border};
+        background: ${themes[theme].contrast}; 
+        &:hover{
+            box-shadow: inset 0 0 5px ${themes[theme].shadow} ;
+        }
+        &:active {
+            background: ${themes[theme].shadowContrast};
+            box-shadow: inset 0 0 5px ${themes[theme].shadow} ;
+        }
+    `}
+`
+
 export const ProductCardButton = styled.button`
     display: flex;
     border-radius: 20px;
@@ -111,7 +131,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 `
 export const CartDisplayDiv = styled.div`
-    
     padding: 40px;
     ${({theme: {theme}})=> `
         border-bottom: 2px solid ${themes[theme].contrast};

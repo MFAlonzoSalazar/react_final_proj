@@ -18,7 +18,7 @@ export default function Cart() {
                     <SubtotalDisplay />
                 </>              
                 ) : (
-                    <h2> No Items In Your Cart </h2>
+                    <h2 style={{paddingRight:"15%"}}> No Items In Your Cart </h2>
             )}
             
         </div>

@@ -10,7 +10,7 @@ export default function ProductCard({id,image,title,price}) {
     return(
         <ProductCardButton onClick={openDetails}>
             <div>
-                <img className="Product-Image" src={image} width="30%" />
+                <img className="Product-Image" src={image} width="30%"/>
             </div>
             <div>
                 <div className="Product-Title"> <b>{title}</b> </div>
