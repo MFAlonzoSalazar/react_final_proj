@@ -22,10 +22,9 @@ export default function MyNavLink({route, label}) {
                         ({cartCount})
                     </p>
                     
-                
-                ) :
-                    label ==="Account" ? <FontAwesomeIcon icon={faUser} size="1x"/> :
-                    label                  
+                ) : (
+                    label ==="Account" ? (<FontAwesomeIcon icon={faUser} size="1x"/>) : (label)   
+                )             
                 }
             </StyledLink>
         </NavLink>

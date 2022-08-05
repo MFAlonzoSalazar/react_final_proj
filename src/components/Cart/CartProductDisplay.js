@@ -34,8 +34,9 @@ export default function CartProductDisplay({id}) {
     if(cart.length > 0) {
         return(
             <CartItems>
-                    <CartProductImg src={product.image} />
-
+                    <div style={{width:"120px", textAlign:"center"}}>
+                        <CartProductImg src={product.image} />
+                    </div>
                     <div style={{display: "flex", flexDirection:"column", textAlign:"left"}}>
                         <p> {product.title} </p>
                         <div className="CartFlex">

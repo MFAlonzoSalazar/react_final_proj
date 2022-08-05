@@ -111,21 +111,23 @@ export const GlobalStyles = createGlobalStyle`
     }
 `
 export const CartDisplayDiv = styled.div`
-    display: flex;
+    
     padding: 40px;
-    width: 50%;
     ${({theme: {theme}})=> `
         border-bottom: 2px solid ${themes[theme].contrast};
     `}
 
 `
+
 export const StyledContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-    align-content: stretch;
     padding-bottom: 60px;
+    width: 50%;
+    ${({theme: {theme}})=> `
+        border-top: 2px solid ${themes[theme].contrast};
+    `}
+`
+export const StyledSubtotalContainer = styled.div`
+    width: 50%;
     ${({theme: {theme}})=> `
         border-top: 2px solid ${themes[theme].contrast};
     `}
@@ -135,14 +137,14 @@ export const CartItems = styled.div`
     flex-direction: row;
     column-gap: 30px; 
     align-content: center;
-    align-items: stretch;
+    align-items: center;
 `
 export const CartProductInfo = styled.p`
     text-align: left;
 `
 export const CartProductImg = styled.img`
-    max-width: 80px;
-    max-height: 130px;
+    max-width:130px;
+    max-height: 100px;
     width: auto;
     height: auto;
 `

@@ -4,24 +4,19 @@ import CartDisplay from "./CartDisplay";
 import { StyledContainer } from "../StyledComponents";
 import SubtotalDisplay from "./SubtotalDisplay";
 export default function Cart() {
+    
     const { cart } = useContext(CartContext);
-    {console.log(cart)}
 
     return(
-        <div>
+        <div style={{marginLeft:"12%"}}>
            <h1>Your Bag</h1>
             {cart.length > 0 ? (
-                <StyledContainer>
-                    <div style={{width:"100%"}}>
-                        {cart.map((product) => (
-                            <CartDisplay 
-                                id={product.id} 
-                            />
-                        ))
-                        }
-                    </div>
-                    <SubtotalDisplay /> 
-                </StyledContainer>              
+                <>
+                    <StyledContainer>
+                        <CartDisplay />
+                    </StyledContainer>
+                    <SubtotalDisplay />
+                </>              
                 ) : (
                     <h2> No Items In Your Cart </h2>
             )}
