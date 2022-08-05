@@ -3,11 +3,11 @@ import { CartContext } from "../Contexts/CartContext";
 import { CartProductInfo } from "../StyledComponents";
 export default function SubtotalDisplay() {
 
-    const { total } = useContext(CartContext);
+    const { total, cart } = useContext(CartContext);
 
     return(
         <div className="CartSubtotal">
-            <p> Subtotal : {total.toFixed(2)} </p>
+            <p> Subtotal : ${Math.abs(total).toFixed(2)} </p>
 
         </div>
     )

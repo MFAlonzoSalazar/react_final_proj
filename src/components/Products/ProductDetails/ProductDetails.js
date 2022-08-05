@@ -12,6 +12,18 @@ export default function ProductDetails() {
     const { productId } = useParams();
     const { addToCart, calculateTotal } = useContext(CartContext);
 
+    let checkandSetQuantity = (quantity) => {
+        if(quantity === 0) {
+            quantity = 1;
+            setQuantity(quantity);
+        }
+        if(quantity > 100) {
+            setQuantity(100);
+        } else {
+            setQuantity(quantity);
+        }
+    }
+
     let addToBag = (productId, title , image, price, quantity) => {
         if(quantity <= Number(0)) {
             return;
@@ -45,9 +57,9 @@ export default function ProductDetails() {
                         type="number" 
                         required
                         value={quantity} 
-                        autoComplete="off"
                         min="1"
-                        onChange={(event => setQuantity(Number(event.target.value)))}
+                        max="100"
+                        onChange={(event => checkandSetQuantity(Number(event.target.value)))}
                     />
                     <StyledButton type="button" onClick={() =>
                         addToBag(productId, productInfo.title, productInfo.image, productInfo.price, quantity)}>

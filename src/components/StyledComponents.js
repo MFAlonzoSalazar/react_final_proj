@@ -34,7 +34,8 @@ export const AppBackground = styled.div`
 export const AppHeader = styled.header`
     padding-right: 20px;
     padding-left: 50px;
-    border-radius: 6px;
+    position:sticky;
+    top: 0;
     ${({theme: {theme}})=> `
         background-color: ${themes[theme].contrast};
         border: 2px solid ${themes[theme].border};
@@ -45,7 +46,6 @@ export const AppFooter = styled.footer`
         left: 0;
         bottom: 0;
         width: 100%;
-        border-radius: 6px;
         text-align: center;
     ${({theme: {theme}})=> `
         background-color: ${themes[theme].contrast};

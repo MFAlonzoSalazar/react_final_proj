@@ -6,24 +6,31 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function CartProductDisplay({id}) {
-    const { cart, total, calculateTotal, removeFromCart } = useContext(CartContext);
+    const { cart, cartCount, setCartCount, calculateTotal, removeFromCart } = useContext(CartContext);
     const product = cart.find(x => x.id === id);
 
+
     let modifyCart = (newQuantity) => {
-        if (newQuantity === 0) { 
-            const difference = Number(0) - Number(product.quantity);
-            product.itemTotal = 0;
-            calculateTotal(difference, product.price);
-            removeFromCart(product.id, Number(0));
-        }   else {
-            const difference = Number(newQuantity) - Number(product.quantity);
-            calculateTotal(difference, product.price);
-            product.itemTotal = Number(product.price) * Number(newQuantity);
-            product.quantity = newQuantity;
-            
+        if(newQuantity === 0) {
+            newQuantity = 1;
+        } else if (newQuantity > 100) {
+            newQuantity = 100
         }
-        
+        const difference = Number(newQuantity) - Number(product.quantity);
+        setCartCount(Number(difference) + Number(cartCount));
+        calculateTotal(difference, product.price);
+        product.itemTotal = Number(product.price) * Number(newQuantity);
+        product.quantity = newQuantity;    
+    } 
+
+    let deleteFromCart = () => {
+        product.itemTotal = 0;
+        const difference = Number(0) - Number(product.quantity);
+        setCartCount(Number(difference) + Number(cartCount)); 
+        calculateTotal(difference, product.price);
+        removeFromCart(product.id, Number(0));
     }
+
     if(cart.length > 0) {
         return(
             <CartItems>
@@ -33,15 +40,15 @@ export default function CartProductDisplay({id}) {
                         <p> {product.title} </p>
                         <div className="CartFlex">
                             <div>
-                                <input className="CartModifier"
-                                        name="quantity" 
-                                        type="number" 
-                                        value={product.quantity} 
-                                        autoComplete="off"
-                                        min="1"
-                                        onChange={(event => modifyCart((event.target.value)))}      
-                                />
-                                <FontAwesomeIcon className="Remove" icon={faTrashCan} onClick={()=> modifyCart(0)} /> 
+                            <input className="CartModifier"
+                                name="quantity" 
+                                type="number" 
+                                value={product.quantity} 
+                                min="1"
+                                max="100"
+                                onChange={(event => modifyCart(Number(event.target.value)))}
+                            />
+                                <FontAwesomeIcon className="Remove" icon={faTrashCan} onClick={deleteFromCart} /> 
                             </div> 
                             <p> Price : ${product.price.toFixed(2)} </p> 
                             <b> Total : ${Number(product.itemTotal).toFixed(2)} </b>
