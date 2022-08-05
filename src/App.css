@@ -24,10 +24,6 @@
   margin: 8px;
 }
 
-h1{
-  text-align: left;
-}
-
 .ProductDisplay{
   display: flex;
   flex-wrap: wrap;
