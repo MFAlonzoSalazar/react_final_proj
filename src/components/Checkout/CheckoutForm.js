@@ -6,19 +6,13 @@ import { Form} from 'react-bootstrap'
 
 export default function CheckoutForm({showBillingAddrInput, sameAddr, setSameAddr}) {
     return(
-
         <Form>
             <StyledForm>
-                
-
                 <ShippingAddrForm />
                 <ShippingOption />
                 <Payment sameAddr={sameAddr} setSameAddr={setSameAddr}/>
-                {showBillingAddrInput(sameAddr)}
-                
-            </StyledForm>
-                
+                {showBillingAddrInput(sameAddr)}  
+            </StyledForm>    
         </Form>
-
     );
 }

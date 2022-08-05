@@ -25,7 +25,6 @@ export default function Checkout() {
         return(
             <div style={{paddingLeft:"20%", paddingTop:"56px"}}>
                 <div style={{display:"flex", flexDirection:"column", width:"50%"}}>
-
                     <CheckoutForm 
                         showBillingAddrInput={showBillingAddrInput} 
                         sameAddr={sameAddr} 
@@ -35,11 +34,7 @@ export default function Checkout() {
                         <h1>Cart Overview</h1>
                         <CartDisplay />
                     </div>
-                    
-
                 </div>
-                
-                
                 <SubtotalDisplay/>
             </div>
         );
