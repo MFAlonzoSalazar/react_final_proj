@@ -43,6 +43,7 @@ export default function CartProductDisplay({id}) {
                         value={product.quantity} 
                         min="1"
                         max="100"
+                        style={{height:"20px"}}
                         onChange={(event => modifyCart(Number(event.target.value)))}
                     />
                     <FontAwesomeIcon className="Remove" icon={faTrashCan} onClick={deleteFromCart} /> 
@@ -62,12 +63,12 @@ export default function CartProductDisplay({id}) {
                     <div style={{width:"120px", textAlign:"center"}}>
                         <CartProductImg src={product.image} />
                     </div>
-                    <div style={{display: "flex", flexDirection:"column", textAlign:"left"}}>
+                    <div className="CartDescription" >
                         <p> {product.title} </p>
                         <div className="CartFlex">
                             {showCartModifier()}
-                            <p> Price : ${product.price.toFixed(2)} </p> 
-                            <b> Total : ${Number(product.itemTotal).toFixed(2)} </b>
+                            <div> Price : ${product.price.toFixed(2)} </div> 
+                            <div> <b>Total : ${Number(product.itemTotal).toFixed(2)}</b> </div>
                         </div>
                     </div>
             </CartItems>

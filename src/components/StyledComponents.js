@@ -163,6 +163,7 @@ export const CartItems = styled.div`
     flex-direction: row;
     column-gap: 30px; 
     align-content: center;
+    justify-content: flex-start;
     align-items: center;
 `
 export const CartProductInfo = styled.p`

@@ -44,8 +44,8 @@ export default function ProductDetails() {
             </div>
            
            <div className="DetailsCard">
-                <h1 style={{textAlign:"left"}}>{productInfo.title}</h1>
-               
+                <h1>{productInfo.title}</h1>
+                <br />
                 <p>{productInfo.description}</p>
                 <br />
                 <p><b>Price : ${Number(productInfo.price).toFixed(2)} </b> </p>

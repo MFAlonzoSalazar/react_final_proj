@@ -23,7 +23,8 @@ export default function Checkout() {
         );    
     } else {
         return(
-            <div style={{paddingLeft:"20%", paddingTop:"56px"}}>
+            <div style={{paddingLeft:"20%"}}>
+                <h1 style={{paddingBottom:"10px"}}>Checkout</h1>
                 <div style={{display:"flex", flexDirection:"column", width:"50%"}}>
                     <CheckoutForm 
                         showBillingAddrInput={showBillingAddrInput} 
