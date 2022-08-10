@@ -6,7 +6,7 @@ export default function NotFound() {
         <div style={{paddingTop:"8%"}} >
             <FontAwesomeIcon icon={faQuestion} size="10x" />
 
-            <h1 style={{paddingTop: "20px"}}>
+            <h1 style={{paddingTop: "20px", textAlign:'center'}}>
                 The page you are looking for does not exist, try again
             </h1> 
         </div>

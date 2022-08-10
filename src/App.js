@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {HashRouter, Routes, Route} from 'react-router-dom';
 import HeaderFooter from './components/Static/HeaderFooter';
 import Home from './components/Static/Home';
 import Products from './components/Products/ProductsPage/Products';
@@ -19,7 +19,7 @@ function App() {
       <GlobalStyles />
       <CartProvider>
 
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
 
             <Route path="/" element={<HeaderFooter />}>
@@ -33,7 +33,7 @@ function App() {
             </Route>
 
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </CartProvider>
 
     </ThemeProvider>
